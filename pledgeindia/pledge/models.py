@@ -48,7 +48,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(_('last name'),  max_length=30, blank=True)
     date_joined = models.DateField(_('date joined'), auto_now=True)
     is_active = models.BooleanField(_('active'), default=True)
-    avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
     gender = models.TextField(_('gender'), choices=gender_choices, null=True, blank=True)
 
