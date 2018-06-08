@@ -8,8 +8,38 @@ This repository contains all the source code related to the project `pledge-indi
 
 ## Technologies used
 
+This project runs on Python3 and Django 2. Other Python Libraries used can be found in `requirements`.
+
+Database used: `PostgresSQL`
+
+Frontend Framework: `Bootstrap v4`
+
 ## How to setup?
+
+Create a Python3 Virtual Environmentm, activate it and install the development requirements from `requirements/local.txt`
+
+```
+virtualenv -p python3 venv
+source venv/bin/activate
+pip install -r requirements/local.txt
+```
+Navigate to `pledgeindia/pledgeindia` and create .env file with following:
+
+```
+DEBUG=True
+DJANGO_SECRET=<Some_long_random_string>
+DATABASE_PORT=5432
+DATABASE_HOST=localhost
+DATABASE_NAME=<DATABASE_NAME>
+DATABASE_USER=<DATABASE_USER>
+DATABASE_PASS=<DATABASE_PASS>
+```
+
+
+Navigate to `pledgeindia`, and apply any pending migrations by running `python manage.py migrate`. Now, Start the development server by `python manage.py runserver 0.0.0.0:8000`
 
 ## Contribution
 
-## Contributors 
+## Contributors
+- @tucosaurus 
+- @thisisayush
