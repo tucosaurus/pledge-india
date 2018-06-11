@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pledge',
+    'user',
+    'pledge',    
 ]
 
 MIDDLEWARE = [
@@ -135,4 +136,4 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, "..", "uploads")
 MEDIA_URL = '/uploads/'
 
-AUTH_USER_MODEL = 'pledge.User'
+AUTH_USER_MODEL = 'user.User'
