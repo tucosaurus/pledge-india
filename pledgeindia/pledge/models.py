@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from user.models import User
+from base.models import TimeStampedModel
+
 # Create your models here.
-class Pledge(models.Model):
+class Pledge(TimeStampedModel):
     """Pledge Model"""
 
     title = models.CharField(_('title'), max_length = 100)
@@ -15,7 +17,7 @@ class Pledge(models.Model):
     def __str__(self):
         return self.title
 
-class User_Pledges(models.Model):
+class User_Pledges(TimeStampedModel):
     """User Pledges Model"""
 
     pledge = models.ForeignKey(Pledge, on_delete=models.CASCADE)
