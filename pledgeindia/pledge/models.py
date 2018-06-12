@@ -3,12 +3,13 @@ from django.utils.translation import ugettext_lazy as _
 from user.models import User
 from base.models import TimeStampedModel
 
+
 # Create your models here.
 class Pledge(TimeStampedModel):
     """Pledge Model"""
 
-    title = models.CharField(_('title'), max_length = 100)
-    description = models.TextField(_('description'),null=True)
+    title = models.CharField(_('title'), max_length=100)
+    description = models.TextField(_('description'), null=True)
 
     class Meta:
         verbose_name = _('pledge')
@@ -16,6 +17,7 @@ class Pledge(TimeStampedModel):
 
     def __str__(self):
         return self.title
+
 
 class UserPledges(TimeStampedModel):
     """User Pledges Model"""

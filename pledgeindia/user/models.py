@@ -7,6 +7,7 @@ from base.models import TimeStampedModel
 
 # Create your models here.
 
+
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
@@ -17,7 +18,7 @@ class UserManager(BaseUserManager):
 
         if not email:
             raise ValueError('Email is Required')
-        
+
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
@@ -30,10 +31,10 @@ class UserManager(BaseUserManager):
 
     def create_superuser(self, email, password, **extra_fields):
         extra_fields.setdefault('is_superuser', True)
-        
+
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True')
-        
+
         return self._create_user(email, password, **extra_fields)
 
 
@@ -42,7 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
     gender_choices = (
         ('male', 'Male'),
         ('female', 'Female'),
-        ('other','Other'),
+        ('other', 'Other'),
     )
 
     email = models.EmailField(_('email address'), unique=True)
@@ -51,7 +52,8 @@ class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
     date_joined = models.DateField(_('date joined'), auto_now=True)
     is_active = models.BooleanField(_('active'), default=True)
 
-    gender = models.TextField(_('gender'), choices=gender_choices, null=True, blank=True)
+    gender = models.TextField(
+        _('gender'), choices=gender_choices, null=True, blank=True)
 
     objects = UserManager()
 
