@@ -17,7 +17,7 @@ class Pledge(TimeStampedModel):
     def __str__(self):
         return self.title
 
-class User_Pledges(TimeStampedModel):
+class UserPledges(TimeStampedModel):
     """User Pledges Model"""
 
     pledge = models.ForeignKey(Pledge, on_delete=models.CASCADE)
