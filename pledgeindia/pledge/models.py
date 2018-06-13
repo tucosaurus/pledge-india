@@ -24,7 +24,8 @@ class UserPledges(TimeStampedModel):
 
     pledge = models.ForeignKey(Pledge, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    datetime_taken = models.DateTimeField(_('taken on'), auto_now_add=True)
+    taken_on = models.DateTimeField(
+        _('taken on'), auto_now_add=True, help_text="Datetime at which user took the pledge")
 
     def __str__(self):
         return "%s by %s" % (self.pledge.title, self.user.first_name)
