@@ -51,6 +51,8 @@ class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
     last_name = models.CharField(_('last name'),  max_length=30, blank=True)
     date_joined = models.DateField(_('date joined'), auto_now=True)
     is_active = models.BooleanField(_('active'), default=True)
+    is_staff = models.BooleanField(_('staff status'), default=False,
+                                   help_text='Designates whether the user can log into this admin site.')
 
     gender = models.TextField(
         _('gender'), choices=gender_choices, null=True, blank=True)
