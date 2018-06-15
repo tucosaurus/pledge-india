@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base',
     'user',
-    'pledge',    
+    'pledge',
+
+    # Social auth
+    'social_django',  # https://github.com/python-social-auth/social-app-django
 ]
 
 MIDDLEWARE = [
@@ -55,6 +58,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # social auth
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'pledgeindia.urls'
@@ -70,6 +76,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # social auth
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -138,3 +148,28 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "..", "uploads")
 MEDIA_URL = '/uploads/'
 
 AUTH_USER_MODEL = 'user.User'
+
+AUTHENTICATION_BACKENDS = (
+
+    # Facebook
+    'social_core.backends.facebook.FacebookAppOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    # Django
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+
+# Social auth specific settings
+# Facebook
+SOCIAL_AUTH_FACEBOOK_APP_ID = env('FACEBOOK_APP_ID')
+SOCIAL_AUTH_FACEBOOK_APP_SECRET = env('FACEBOOK_APP_SECRET')
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'public_profile', 'user_gender']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, name, email, gender'
+}
