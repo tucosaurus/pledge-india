@@ -21,7 +21,7 @@ Create a Python3 Virtual Environmentm, activate it and install the development r
 ```
 virtualenv -p python3 venv
 source venv/bin/activate
-pip install -r requirements/local.txt
+pip3 install -r requirements/local.txt --user
 ```
 Navigate to `pledgeindia/pledgeindia` and create .env file with following:
 
@@ -42,8 +42,7 @@ FACEBOOK_APP_SECRET=''
 
 Navigate to `pledgeindia`, and apply any pending migrations by running `python manage.py migrate`. Now, Start the development server by `python manage.py runserver 0.0.0.0:8000`
 
-## Contribution
-
 ## Contributors
 - @tucosaurus 
 - @thisisayush
+- @vipulgupta2048
