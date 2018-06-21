@@ -1,4 +1,4 @@
-# Pledge-India
+﻿# Pledge-India
 
 This repository contains all the source code related to the project `pledge-india` under the license GPLv3+.
 
@@ -43,3 +43,4 @@ Navigate to `pledgeindia`, and apply any pending migrations by running `python m
 ## Contributors
 - @tucosaurus 
 - @thisisayush
+- @utkarsh2102
