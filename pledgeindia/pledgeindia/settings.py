@@ -150,6 +150,10 @@ MEDIA_URL = '/uploads/'
 AUTH_USER_MODEL = 'user.User'
 
 AUTHENTICATION_BACKENDS = (
+    #Google
+    'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOpenId',
+    'social_core.backends.google.GoogleOAuth2',
 
     # Facebook
     'social_core.backends.facebook.FacebookAppOAuth2',
