@@ -3,7 +3,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from pledgeindia.base.models import TimeStampedModel
+from base.models import TimeStampedModel
 
 # Create your models here.
 
