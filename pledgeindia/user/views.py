@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.conf import settings
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from .models import User
 from .forms import LoginForm
@@ -35,3 +36,8 @@ def LoginView(request):
         form = LoginForm()
     
     return render(request, 'user/login.html', {'form': form})
+
+def LogoutView(request):
+    logout(request)
+
+    return redirect(reverse("user:login"))
