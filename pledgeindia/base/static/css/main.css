@@ -37,6 +37,53 @@ body{
     margin-bottom: 1.5rem;
 }
 
+/** Color classes **/
+.text-orange {
+    color: #FF9933;
+}
+.text-green{
+    color: #138808;
+}   
+.bg-orange {
+    background-color: #FF9933;
+}
+.bg-green {
+    background-color: #138808;
+}
+/** Helper Classes **/
+.full-screen {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.tilt-right {
+    transform: skew(-20deg);
+}
+
+.absolute-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+/** Custom Scrollbars **/
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    transition: .3s background;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background: #858585;
+}
+  
+*:hover::-webkit-scrollbar-thumb {
+    background: #adb5bd;
+}
+
 /** Logo and Text Logo **/
 .logo {
     height: 4rem;
@@ -54,4 +101,158 @@ body{
 /** Login UI **/
 .social-login-badge{
     font-size: 1.2em;
+}
+
+/** Section Cards **/
+
+section {
+    position: relative;
+}
+
+section.card{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+}
+
+section .background-wrapper,
+section .content-wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+section .background-wrapper.overlay-dark::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+}
+section .content-wrapper .wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+/** Navigation **/
+#primaryNav{
+    transform: translateY(-100%);
+    transition: 1s all;
+}
+#primaryNav.visible{
+    transform: translateY(0);
+}
+
+/** Home Styles **/
+
+#homeCarousel,
+#homeCarousel .carousel-inner, 
+#homeCarousel .carousel-item {
+    width: 100%;
+    height: 100%;
+}
+
+#homeCarousel .carousel-item {
+    background-position: center;
+    background-size: cover;
+    animation: zoom 12s linear infinite alternate;
+    background-repeat: no-repeat;
+}   
+#home .left-container{
+    position: relative;
+}
+#home .left-container .background-wrapper{
+    opacity: 0.5;
+    animation: tiranga 7s linear infinite alternate;
+}
+#home {
+    min-height: 400px;
+}
+#homeContent {
+    text-align: center;    
+    height: 235px;
+}
+#homeText1, #homeText2, #homeText3 {
+    text-align: center;
+    margin: 0;
+}
+#homeText1, #homeText3{
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    width: 5em;
+}
+#homeText2 {
+    font-family: 'Pacifico', sans-serif;
+    font-size: 1.5em;
+    font-style: italic;
+    text-transform: lowercase;
+    opacity: 0.6;
+}
+
+#pledgesRegisteredHome {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 1.75em;
+    color: rgba(255,255,255,0.5);
+}
+@media all and (max-width: 768px){
+    #home {
+        min-height: 300px;
+    }
+    #homeContent {
+        height: 180px;
+    }
+    #homeText1, #homeText3 {
+        font-size: 2.5em;
+    }
+    #homeText2{
+        font-size: 0.8em;
+    }
+    #pledgesRegisteredHome {
+        font-size: 0.75em;
+    }
+}
+#scrollMouseBtn {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    animation: updown 1s linear infinite alternate;
+}
+#scrollMouseBtn img {
+    height: 3.5em;
+    width: auto;
+}
+/** Animations **/
+@keyframes tiranga {
+    from {
+        background-color: #FF9933
+    }
+    to {
+        background-color: #138808;
+    }
+}
+@keyframes updown {
+    from {
+        bottom: 10px;
+    }
+    to {
+        bottom: 15px;
+    }
+}
+@keyframes zoom{
+    from {
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.2);
+    }
 }

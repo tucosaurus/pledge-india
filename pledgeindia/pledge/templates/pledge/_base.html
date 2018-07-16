@@ -1,0 +1,51 @@
+{% extends '_base.html' %}
+
+{% block title %}Pledge India {% endblock %}
+
+{% block body %}
+
+{% include 'pledge/components/_preloader.html' %}
+{% include 'pledge/components/_header.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'pledge/components/_footer.html' %}
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(document).ready(function(e){
+            $(".js-counter").each(function(i, v){
+                $this = $(v);
+                requestAnimationFrame(function(){
+                    var countTo = parseInt($this.attr("data-countTo"));
+                    var currValue = parseInt($this.html());
+                    console.log(countTo);
+                    console.log(currValue);
+                    var inte = setInterval(function(){
+                        if(currValue <= countTo){
+                            requestAnimationFrame(function(){
+                                currValue = parseInt($this.html());
+                                currValue = Math.floor((Math.random()*countTo) + currValue);
+                                $this.html(currValue);
+                            });
+                        }else{
+                            clearInterval(inte);
+                            $this.html(countTo);
+                        }
+                    }, 200);
+                });
+            });
+
+            function checkNav(){
+                if($(window).scrollTop() > $("#home").scrollTop() + $("#home").height() - 20){
+                    $("#primaryNav").addClass("visible");
+                }else{
+                    $("#primaryNav").removeClass("visible");
+                }
+            }
+            $(window).on("scroll", checkNav);
+        });
+    </script>
+{% endblock %}
