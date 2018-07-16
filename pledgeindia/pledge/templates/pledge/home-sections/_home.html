@@ -1,0 +1,42 @@
+{% load static %}
+<section class="container-fluid full-screen card" id="home">
+    <div class="background-wrapper overlay-dark">
+        <div class="carousel slide carousel-fade" data-ride="carousel" id="homeCarousel" data-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('{% static 'images/cover1.png' %}');">
+                </div>
+                <div class="carousel-item" style="background-image: url('{% static 'images/cover2.jpg' %}')">
+                </div>
+                <div class="carousel-item" style="background-image: url('{% static 'images/cover3.jpg' %}')">
+                </div>
+                <div class="carousel-item" style="background-image: url('{% static 'images/cover4.jpeg' %}/')">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="row h-100">
+            <div class="col-10 col-md-5 col-lg-4 left-container h-100 mx-auto">
+                <div class="background-wrapper tilt-right">
+                </div>
+                <div id="homeContent" class="absolute-center">
+                    <div class="bg-green text-orange mx-auto" id="homeText1">
+                        Pledge
+                    </div>
+                    <p class="text-white" id="homeText2">
+                        towards a better
+                    </p>
+                    <div class="bg-orange text-green mx-auto" id="homeText3">
+                        India!
+                    </div>
+                    <div class="text-center mt-3" id="pledgesRegisteredHome">
+                        <span class="js-counter" data-countTo="23547">0</span>+ Pledges Registered!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span id="scrollMouseBtn">
+            <img src="{% static  'images/mouse-white.svg' %}" />
+        </span>
+    </div>
+</section>
